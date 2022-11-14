@@ -38,21 +38,26 @@ for ( let i = 0; i < words.length; i++ ){
     lookup[firstLetter].push(word);
 }
 
-// 💬
+// For lookup is used to check if the first lookup value is object lookup. 
+// It returns bool value if its true or false. 
 for ( firstLetter in lookup ){
    let entry = lookup[firstLetter];
 
-   // 💬
+   // .filter function creates a new array through the arrow function
+    // the items in the entry level array is the same as their index value. 
+    // It can be found in array, if not present -1 will be the array. 
    entry = entry.filter((item, index) => entry.indexOf(item) === index);
 
-   // Sorting out the words in the array
+   // Sorting out the words in ascending order in the array
    entry = entry.sort();
 
-   // 💬
+   // It reassigns the first value of lookup for the new entry. 
    lookup[firstLetter] = entry;
 }
 
-// 💬
+// For loop is being used for sorting the property names
+// For loop is being used to lookup the object 
+// retruns the property value
 for ( letter of Object.keys(lookup).sort() ){
     console.log(letter, lookup[letter]);
 }
